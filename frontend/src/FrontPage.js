@@ -12,14 +12,16 @@ function FrontPage(){
     }, []);
 
     return (
-        <div>{typeof data === 'undefined' ? "" : data.map((item) => {
+        <div>
+            {/* {typeof data === 'undefined' ? "" : data.map((item) => {
                 return(
                     <div key={item.id}>
                         {item.id + " "}
                         {item.category}
                     </div>
                 )
-            })}
+            })} */}
+            {JSON.stringify(data)}
         </div>
     )
 }
