@@ -9,7 +9,7 @@ test('Select Roles table', () => {
 test('Select Users table', () => {
     return expect(selectUsers).
             resolves.
-            toEqual(JSON.parse(`[{"id":1,"role_id":1,"full_name":"admin","email":"admin@admin.com","password":"admin123"}]`));
+            toEqual(JSON.parse(`[{"id":1,"role_id":1,"full_name":"admin","email":"admin@admin.com"}]`));
 });
 
 test('Select Categories table', () => {

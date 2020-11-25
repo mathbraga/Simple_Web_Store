@@ -10,7 +10,7 @@ const selectRoles = new Promise(function roles(resolve){
 });
 
 const selectUsers = new Promise(function roles(resolve){
-    db.all('select * from users', [], (err, rows) => {
+    db.all('select id, role_id, full_name, email from users', [], (err, rows) => {
         if (err) {
         throw err;
         }

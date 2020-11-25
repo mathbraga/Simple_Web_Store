@@ -32,6 +32,13 @@ const initialize = function initDb(){
             category TEXT NOT NULL UNIQUE
         )`);
 
+        db.run(`CREATE TABLE IF NOT EXISTS products ( 
+            id INTEGER PRIMARY KEY,
+            category_id INTEGER NOT NULL,
+            name TEXT NOT NULL,
+            price REAL NOT NULL
+        )`);
+
         db.run(`insert or ignore into categories (category) values ('motherboards')`);
         db.run(`insert or ignore into categories (category) values ('graphicscard')`);
         db.run(`insert or ignore into categories (category) values ('processor')`);

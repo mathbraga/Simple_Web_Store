@@ -5,8 +5,16 @@ const { selectRoles, selectUsers, selectCategories } = require('./fetchDB/fetchF
 
 initialize();
 
-routes.get('/', (req, res) => {
+routes.get('/categories', (req, res) => {
     selectCategories.then((r) => res.json(r));
+});
+
+routes.get('/users', (req, res) => {
+    selectUsers.then((r) => res.json(r));
+});
+
+routes.get('/roles', (req, res) => {
+    selectRoles.then((r) => res.json(r));
 });
 
 terminate();
