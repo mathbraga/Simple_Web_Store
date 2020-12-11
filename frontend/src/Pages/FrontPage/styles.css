@@ -1,16 +1,35 @@
-.page-container{
+.header-bar{
     width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    flex-direction: column;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #c8ced3;
+    align-items: center;
     justify-content: center;
+}
+
+.header-bar-item{
+    display: flex;
     align-items: center;
 }
 
-.buttons-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+.header-title{
+    padding-left: 4px;
+}
+
+.side-bar{
+    height: 100vmax;
+    width: 15%;
+    background-color: #2f353a;
+}
+
+.side-bar-item:hover{
+    background-color: #20a8d8;
+}
+
+.side-bar-link{
+    color: white;
+}
+
+.side-bar-link:hover{
+    color: white;
 }

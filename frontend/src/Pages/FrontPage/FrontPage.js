@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import connect from '../../services/connect';
+import { Nav, NavItem, NavLink, Header } from 'reactstrap';
+import wIcon from './icon/pc-icon.png';
 
 import './styles.css';
 
 function FrontPage(){
-    const [data, setData] = useState("null");
-    const [fetchString, setString] = useState('/Users');
+    // const [data, setData] = useState("null");
+    // const [fetchString, setString] = useState('/Users');
 
     // useEffect(() => {
     //     connect.get(fetchString).then(res => {
@@ -14,36 +16,36 @@ function FrontPage(){
     //     })
     // }, []);
 
-    function changeFetchString(dataType){
-        setString(dataType);
-        connect.get(fetchString).then(res => {
-            const serverRes = res.data;
-            setData(serverRes);
-        })
-    }
+    // function changeFetchString(dataType){
+    //     setString(dataType);
+    //     connect.get(fetchString).then(res => {
+    //         const serverRes = res.data;
+    //         setData(serverRes);
+    //     })
+    // }
 
     return (
-        <div className="page-container">
-            <div>
-                <div className="alert alert-primary">
-                    {/* {typeof data === 'undefined' ? "" : data.map((item) => {
-                        return(
-                            <div key={item.id}>
-                                {item.id + " "}
-                                {item.category}
-                            </div>
-                        )
-                    })} */}
-                    {JSON.stringify(data)}
-                </div>
-            </div>
-            <div>
-                <div className="buttons-container">
-                    <button type="button" class="btn btn-secondary" onClick={() => changeFetchString('/Roles')}>Roles</button>
-                    <button type="button" class="btn btn-secondary" onClick={() => changeFetchString('/Users')}>Users</button>
-                    <button type="button" class="btn btn-secondary" onClick={() => changeFetchString('/Categories')}>Categories</button>
-                </div>
-            </div>
+        <div>
+            <Nav className="header-bar">
+                <NavItem className="header-bar-item">
+                    <div><img src={wIcon} alt="Girl in a jacket"/></div>
+                    <div className="header-title">WebStore</div>
+                </NavItem>
+            </Nav>
+            <Nav vertical className="side-bar">
+                <NavItem className="side-bar-item">
+                    <NavLink href="#" className="side-bar-link">Home</NavLink>
+                </NavItem>
+                <NavItem className="side-bar-item">
+                    <NavLink href="#" className="side-bar-link">CPU</NavLink>
+                </NavItem>
+                <NavItem className="side-bar-item">
+                    <NavLink href="#" className="side-bar-link">GPU</NavLink>
+                </NavItem>
+                <NavItem className="side-bar-item">
+                    <NavLink href="#" className="side-bar-link">Placas-mãe</NavLink>
+                </NavItem>
+            </Nav>
         </div>
     )
 }
