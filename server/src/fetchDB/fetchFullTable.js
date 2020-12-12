@@ -27,4 +27,13 @@ const selectCategories = new Promise(function roles(resolve){
     });
 });
 
-module.exports = { selectRoles, selectUsers, selectCategories };
+const selectCPU = new Promise(function roles(resolve){
+    db.all('select * from products where category_id == 3', [], (err, rows) => {
+        if (err) {
+        throw err;
+        }
+        resolve(rows);
+    });
+});
+
+module.exports = { selectRoles, selectUsers, selectCategories, selectCPU };

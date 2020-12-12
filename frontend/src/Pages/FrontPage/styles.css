@@ -3,13 +3,12 @@
     height: 50px;
     background-color: white;
     border: 1px solid #c8ced3;
-    align-items: center;
-    justify-content: center;
 }
 
 .header-bar-item{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .header-title{
@@ -18,7 +17,6 @@
 
 .side-bar{
     height: 100vmax;
-    width: 15%;
     background-color: #2f353a;
 }
 
@@ -32,4 +30,10 @@
 
 .side-bar-link:hover{
     color: white;
+}
+
+.side-bar-container{
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
 }

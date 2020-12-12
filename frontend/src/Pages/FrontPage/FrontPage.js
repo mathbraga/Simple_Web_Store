@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import connect from '../../services/connect';
-import { Nav, NavItem, NavLink, Header } from 'reactstrap';
-import wIcon from './icon/pc-icon.png';
+import * as strap from 'reactstrap';
+import Dashboard from "../../components/Dashboard/Dashboard";
+import CPU from "../cpu/CPU";
+
+import wIcon from '../../assets/icons/pc-icon.png';
 
 import './styles.css';
 
@@ -26,26 +30,42 @@ function FrontPage(){
 
     return (
         <div>
-            <Nav className="header-bar">
-                <NavItem className="header-bar-item">
-                    <div><img src={wIcon} alt="Girl in a jacket"/></div>
+            <div className="header-bar">
+                <div className="header-bar-item">
+                    <div><img src={wIcon} /></div>
                     <div className="header-title">WebStore</div>
-                </NavItem>
-            </Nav>
-            <Nav vertical className="side-bar">
-                <NavItem className="side-bar-item">
-                    <NavLink href="#" className="side-bar-link">Home</NavLink>
-                </NavItem>
-                <NavItem className="side-bar-item">
-                    <NavLink href="#" className="side-bar-link">CPU</NavLink>
-                </NavItem>
-                <NavItem className="side-bar-item">
-                    <NavLink href="#" className="side-bar-link">GPU</NavLink>
-                </NavItem>
-                <NavItem className="side-bar-item">
-                    <NavLink href="#" className="side-bar-link">Placas-mãe</NavLink>
-                </NavItem>
-            </Nav>
+                </div>
+            </div>
+            <strap.Row>
+                <strap.Col>
+                    <strap.Nav vertical className="side-bar">
+                        <strap.NavItem className="side-bar-item">
+                            <strap.NavLink href="/dashboard" className="side-bar-link">Home</strap.NavLink>
+                        </strap.NavItem>
+                        <strap.NavItem className="side-bar-item">
+                            <strap.NavLink href="/cpu" className="side-bar-link">CPU</strap.NavLink>
+                        </strap.NavItem>
+                        <strap.NavItem className="side-bar-item">
+                            <strap.NavLink href="#" className="side-bar-link">GPU</strap.NavLink>
+                        </strap.NavItem>
+                        <strap.NavItem className="side-bar-item">
+                            <strap.NavLink href="#" className="side-bar-link">Placas-mãe</strap.NavLink>
+                        </strap.NavItem>
+                    </strap.Nav>
+                </strap.Col>
+                <strap.Col sm="10">
+                    <BrowserRouter>
+                        <Route render={() => (
+                            <Switch>
+                                <Route path="/dashboard" component={Dashboard}/>
+                                <Route path="/cpu" component={CPU}/>
+                                <Redirect from="/" to={{ pathname: "/dashboard" }}/>
+                            </Switch>
+                        )} />
+                    </BrowserRouter>
+                </strap.Col>
+            </strap.Row>
+            
         </div>
     )
 }

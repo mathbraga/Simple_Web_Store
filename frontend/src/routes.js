@@ -5,7 +5,7 @@ import FrontPage from './Pages/FrontPage/FrontPage';
 function Routes(){
     return(
         <BrowserRouter>
-            <Route path="/" exact component={FrontPage} />
+            <Route path="/" name="Home" component={FrontPage} />
         </BrowserRouter>
     )
 }

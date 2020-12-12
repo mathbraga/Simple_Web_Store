@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const { initialize, terminate } = require('./database/Database');
-const { selectRoles, selectUsers, selectCategories } = require('./fetchDB/fetchFullTable');
+const { selectRoles, selectUsers, selectCategories, selectCPU } = require('./fetchDB/fetchFullTable');
 
 initialize();
 
@@ -15,6 +15,10 @@ routes.get('/users', (req, res) => {
 
 routes.get('/roles', (req, res) => {
     selectRoles.then((r) => res.json(r));
+});
+
+routes.get('/cpu', (req, res) => {
+    selectCPU.then((r) => res.json(r));
 });
 
 terminate();
