@@ -7,6 +7,20 @@
     margin: 0 240px 0 240px;
 }
 
+.products-title{
+    display: flex;
+    align-items: center;
+
+    color: rgb(28, 70, 194);
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+
+.products-title img{
+    padding-right: 8px;
+}
+
 .product-item{
     display: flex;
 

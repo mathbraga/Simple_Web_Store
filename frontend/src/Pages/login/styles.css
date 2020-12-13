@@ -1,0 +1,14 @@
+.login-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-buttons a:hover{
+    text-decoration: none;
+}
+
+.not-found{
+    color: rgba(255, 0, 0, 0.644);
+    font-size: 0.9rem;
+}

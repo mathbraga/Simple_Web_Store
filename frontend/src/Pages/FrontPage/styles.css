@@ -1,4 +1,8 @@
 .header-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 100vw;
     height: 50px;
     background-color: white;
@@ -9,6 +13,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: absolute;
+}
+
+.header-login{
+    margin-left: auto;
+    margin-right: 28px;
+    text-decoration: none;
+    color: black;
+}
+
+.header-login:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.header-logout{
+    display: flex;
+    margin-left: auto;
+
+    align-items: center;
+}
+
+.header-email{
+    padding-right: 4px;
+    font-size: 0.9rem;
 }
 
 .header-title{
