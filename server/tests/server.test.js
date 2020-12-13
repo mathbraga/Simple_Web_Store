@@ -1,19 +1,86 @@
-const { selectRoles, selectUsers, selectCategories } = require('../src/fetchDB/fetchFullTable');
+const { 
+    queryUser, 
+    insertUser, 
+    removeUser, 
+    selectGPU, 
+    selectCPU, 
+    selectMB,
+    insertProduct,
+    removeProduct,
+    searchProduct
+} = require('../src/fetchDB/fetchFullTable');
 
-test('Select Roles table', () => {
-    return expect(selectRoles).
+const userData = {
+    name: "test name",
+    email: "test@name.com",
+    password: "12345",
+    address: "test address",
+}
+
+const testProduct = {
+    id: 99,
+    category: 1,
+    name: "motherboard",
+    price: 9999,
+    avatar: "url"
+}
+
+test('Select GPU table', () => {
+    return expect(selectGPU).
             resolves.
-            toEqual(JSON.parse(`[{"id":1,"role":"admin"},{"id":2,"role":"colaborator"},{"id":3,"role":"customer"}]`));
+            not.toEqual([]);
 });
 
-test('Select Users table', () => {
-    return expect(selectUsers).
+test('Select CPU table', () => {
+    return expect(selectCPU).
             resolves.
-            toEqual(JSON.parse(`[{"id":1,"role_id":1,"full_name":"admin","email":"admin@admin.com"}]`));
+            not.toEqual([]);
 });
 
-test('Select Categories table', () => {
-    return expect(selectCategories).
+test('Select Motherboard table', () => {
+    return expect(selectMB).
             resolves.
-            toEqual(JSON.parse(`[{"id":1,"category":"motherboards"},{"id":2,"category":"graphicscard"},{"id":3,"category":"processor"}]`));
+            not.toEqual([]);
+});
+
+test('Insert new user', () => {
+    return expect(insertUser(userData)).
+            resolves.
+            toEqual("Success.");
+});
+
+test('Search user', () => {
+    return expect(queryUser(userData)).
+            resolves.
+            toEqual(JSON.parse(`[{"email":"test@name.com","role_id":3}]`));
+});
+
+test('Delete user', () => {
+    return expect(removeUser(userData)).
+            resolves.
+            toEqual("Success.");
+});
+
+test('Search user', () => {
+    return expect(queryUser(userData)).
+            resolves.
+            toEqual([]);
+});
+
+test('Insert product', () => {
+    return expect(insertProduct(testProduct)).
+            resolves.
+            toEqual("Success.");
+});
+
+test('Search product', () => {
+    return expect(searchProduct(testProduct)).
+            resolves.
+            toEqual(JSON.parse(`[{"name":"motherboard"}]`));
+});
+
+test('Remove product', () => {
+    return expect(removeProduct(testProduct)).
+            resolves.
+            toEqual("Success.");
 });

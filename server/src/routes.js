@@ -2,13 +2,12 @@ const express = require('express');
 const routes = express.Router();
 const { initialize } = require('./database/Database');
 const {
-    selectRoles,
-    selectUsers,
-    selectCategories,
     selectCPU,
     selectGPU,
     selectMB,
     queryUser,
+    insertUser,
+    removeUser,
     insertProduct,
     removeProduct
 } = require('./fetchDB/fetchFullTable');
@@ -41,6 +40,14 @@ routes.get('/motherboard', (req, res) => {
 
 routes.post('/login', (req, res) => {
     queryUser(req.body).then((r) => res.json(r));
+});
+
+routes.post('/signup', (req, res) => {
+    insertUser(req.body).then((r) => res.json(r));
+});
+
+routes.post('/removeuser', (req, res) => {
+    removeUser(req.body).then((r) => res.json(r));
 });
 
 routes.post('/addproduct', (req, res) => {

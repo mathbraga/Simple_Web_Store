@@ -1,32 +1,5 @@
 const { db } = require('../database/Database');
 
-const selectRoles = new Promise(function roles(resolve){
-        db.all('select * from roles', [], (err, rows) => {
-            if (err) {
-            throw err;
-            }
-            resolve(rows);
-        });
-});
-
-const selectUsers = new Promise(function users(resolve){
-    db.all('select id, role_id, full_name, email from users', [], (err, rows) => {
-        if (err) {
-        throw err;
-        }
-        resolve(rows);
-    });
-});
-
-const selectCategories = new Promise(function categories(resolve){
-    db.all('select * from categories', [], (err, rows) => {
-        if (err) {
-        throw err;
-        }
-        resolve(rows);
-    });
-});
-
 const selectCPU = new Promise((resolve) => {
     db.all('select * from products where category_id = 3', [], (err, rows) => {
         if (err) {
@@ -65,6 +38,30 @@ const queryUser = (data) => {
     });
 }
 
+const insertUser = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`insert into users (role_id, full_name, address, email, password) values (
+        3, ${JSON.stringify(data.name)}, ${JSON.stringify(data.address)}, ${JSON.stringify(data.email)}, ${JSON.stringify(data.password)}
+        )`, [], (err) => {
+            if (err) {
+                throw err;
+            }
+            resolve("Success.");
+        });
+    });
+}
+
+const removeUser = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`delete from users where email = ${JSON.stringify(data.email)}`, [], (err) => {
+            if (err) {
+                throw err;
+            }
+            resolve("Success.");
+        });
+    });
+}
+
 const insertProduct = (data) => {
     return new Promise((resolve) =>{
         db.all(`insert into products (id, category_id, name, price, avatar) values (
@@ -89,17 +86,25 @@ const removeProduct = (data) => {
     });
 }
 
-// SELECT c.product_id, p.name FROM cart c inner join users u on c.owner_id = 1
-// 	inner join products p on c.product_id = p.id
+const searchProduct = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`select name from products where id = ${parseInt(data.id)}`, [], (err, rows) => {
+            if (err) {
+                throw err;
+            }
+            resolve(rows);
+        });
+    });
+}
 
-module.exports = { 
-    selectRoles, 
-    selectUsers, 
-    selectCategories, 
+module.exports = {
     selectCPU,
     selectGPU,
     selectMB,
-    queryUser, 
+    queryUser,
+    insertUser,
+    removeUser,
     insertProduct,
-    removeProduct
+    removeProduct,
+    searchProduct
 };

@@ -6,8 +6,10 @@ import CPU from "../cpu/CPU";
 import GPU from "../gpu/GPU";
 import Motherboard from "../motherboard/Motherboard";
 import Login from "../login/Login";
+import Cadastro from '../cadastro/Cadastro';
 import Addproduto from "../addproduto/Addproduto";
 import Removeproduto from "../removeproduto/Removeproduto";
+import RemoveUser from "../removeuser/RemoveUser";
 
 import wIcon from '../../assets/icons/pc-icon.png';
 import userIcon from '../../assets/icons/user.png';
@@ -62,6 +64,9 @@ function FrontPage(){
                             <strap.NavItem className="side-bar-item">
                                 <strap.NavLink href="/removeproduto" className="side-bar-link">- Produto</strap.NavLink>
                             </strap.NavItem>
+                            <strap.NavItem className="side-bar-item">
+                                <strap.NavLink href="/removeuser" className="side-bar-link">- Usuário</strap.NavLink>
+                            </strap.NavItem>
                             </> :
                             <span />
                         }
@@ -76,6 +81,8 @@ function FrontPage(){
                                 <Route path="/gpu" component={GPU}/>
                                 <Route path="/motherboard" component={Motherboard}/>
                                 <Route path="/login" component={Login}/>
+                                <Route path="/cadastro" component={Cadastro}/>
+                                <Route path="/removeuser" component={RemoveUser}/>
                                 <Route path="/addproduto" component={Addproduto}/>
                                 <Route path="/removeproduto" component={Removeproduto}/>
                                 <Redirect from="/" to={{ pathname: "/dashboard" }}/>

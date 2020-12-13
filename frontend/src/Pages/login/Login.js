@@ -7,7 +7,7 @@ import './styles.css';
 function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser] = useState("nn");
+    const [user, setUser] = useState("");
 
     function changeEmail(e){
         setEmail(e.target.value);
@@ -48,7 +48,7 @@ function Login(){
                                 </strap.FormGroup>
                                 <strap.FormGroup>
                                     <strap.Label for="Password">Password</strap.Label>
-                                    <strap.Input type="password" name="password" id="Password" value={password} onChange={changePassword} placeholder="password" />
+                                    <strap.Input type="password" name="password" id="Password" value={password} onChange={changePassword} placeholder="senha" />
                                 </strap.FormGroup>
                                 <div className="login-buttons">
                                     <strap.Button color="primary" onClick={() => clickLogin()}>Login</strap.Button>
