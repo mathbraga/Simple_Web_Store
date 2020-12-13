@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import connect from '../../services/connect';
 import * as strap from 'reactstrap';
 import Dashboard from "../../components/Dashboard/Dashboard";
 import CPU from "../cpu/CPU";
 import GPU from "../gpu/GPU";
+import Motherboard from "../motherboard/Motherboard";
 import Login from "../login/Login";
 import Addproduto from "../addproduto/Addproduto";
 import Removeproduto from "../removeproduto/Removeproduto";
@@ -52,7 +52,7 @@ function FrontPage(){
                             <strap.NavLink href="/gpu" className="side-bar-link">GPU</strap.NavLink>
                         </strap.NavItem>
                         <strap.NavItem className="side-bar-item">
-                            <strap.NavLink href="#" className="side-bar-link">Placas-mãe</strap.NavLink>
+                            <strap.NavLink href="/motherboard" className="side-bar-link">Placas-mãe</strap.NavLink>
                         </strap.NavItem>
                         {localStorage.getItem("session_id") === "1" ? 
                             <>
@@ -74,6 +74,7 @@ function FrontPage(){
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/cpu" component={CPU}/>
                                 <Route path="/gpu" component={GPU}/>
+                                <Route path="/motherboard" component={Motherboard}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/addproduto" component={Addproduto}/>
                                 <Route path="/removeproduto" component={Removeproduto}/>

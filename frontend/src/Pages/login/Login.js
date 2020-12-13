@@ -52,7 +52,7 @@ function Login(){
                                 </strap.FormGroup>
                                 <div className="login-buttons">
                                     <strap.Button color="primary" onClick={() => clickLogin()}>Login</strap.Button>
-                                    <a href="/dashboard">Cadastre-se</a>
+                                    <a href="/cadastro">Cadastre-se</a>
                                 </div>
                             </strap.Form>
                         </strap.CardBody>

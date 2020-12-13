@@ -45,6 +45,15 @@ const selectGPU = new Promise((resolve) => {
     });
 });
 
+const selectMB = new Promise((resolve) => {
+    db.all('select * from products where category_id = 1', [], (err, rows) => {
+        if (err) {
+        throw err;
+        }
+        resolve(rows);
+    });
+});
+
 const queryUser = (data) => {
     return new Promise((resolve) =>{
         db.all(`select email, role_id from users where email = ${JSON.stringify(data.email)} AND password = ${JSON.stringify(data.password)}`, [], (err, rows) => {
@@ -89,6 +98,7 @@ module.exports = {
     selectCategories, 
     selectCPU,
     selectGPU,
+    selectMB,
     queryUser, 
     insertProduct,
     removeProduct

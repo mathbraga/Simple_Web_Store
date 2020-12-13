@@ -7,7 +7,7 @@ import './styles.css';
 function Addproduto(){
     const [id, setId] = useState("");
     const [name, setName] = useState("");
-    const [category, setCategory] = useState();
+    const [category, setCategory] = useState("1");
     const [price, setPrice] = useState("");
     const [avatar, setAvatar] = useState("");
 

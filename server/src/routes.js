@@ -7,6 +7,7 @@ const {
     selectCategories,
     selectCPU,
     selectGPU,
+    selectMB,
     queryUser,
     insertProduct,
     removeProduct
@@ -32,6 +33,10 @@ routes.get('/cpu', (req, res) => {
 
 routes.get('/gpu', (req, res) => {
     selectGPU.then((r) => res.json(r));
+});
+
+routes.get('/motherboard', (req, res) => {
+    selectMB.then((r) => res.json(r));
 });
 
 routes.post('/login', (req, res) => {
