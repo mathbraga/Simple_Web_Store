@@ -4,8 +4,10 @@ import connect from '../../services/connect';
 import * as strap from 'reactstrap';
 import Dashboard from "../../components/Dashboard/Dashboard";
 import CPU from "../cpu/CPU";
+import GPU from "../gpu/GPU";
 import Login from "../login/Login";
 import Addproduto from "../addproduto/Addproduto";
+import Removeproduto from "../removeproduto/Removeproduto";
 
 import wIcon from '../../assets/icons/pc-icon.png';
 import userIcon from '../../assets/icons/user.png';
@@ -13,10 +15,6 @@ import userIcon from '../../assets/icons/user.png';
 import './styles.css';
 
 function FrontPage(){
-    // const [data, setData] = useState("null");
-    // const [fetchString, setString] = useState('/Users');
-
-    
 
     return (
         <div>
@@ -51,15 +49,20 @@ function FrontPage(){
                             <strap.NavLink href="/cpu" className="side-bar-link">CPU</strap.NavLink>
                         </strap.NavItem>
                         <strap.NavItem className="side-bar-item">
-                            <strap.NavLink href="#" className="side-bar-link">GPU</strap.NavLink>
+                            <strap.NavLink href="/gpu" className="side-bar-link">GPU</strap.NavLink>
                         </strap.NavItem>
                         <strap.NavItem className="side-bar-item">
                             <strap.NavLink href="#" className="side-bar-link">Placas-mãe</strap.NavLink>
                         </strap.NavItem>
                         {localStorage.getItem("session_id") === "1" ? 
+                            <>
                             <strap.NavItem className="side-bar-item">
                                 <strap.NavLink href="/addproduto" className="side-bar-link">+ Produto</strap.NavLink>
-                            </strap.NavItem> :
+                            </strap.NavItem>
+                            <strap.NavItem className="side-bar-item">
+                                <strap.NavLink href="/removeproduto" className="side-bar-link">- Produto</strap.NavLink>
+                            </strap.NavItem>
+                            </> :
                             <span />
                         }
                     </strap.Nav>
@@ -70,8 +73,10 @@ function FrontPage(){
                             <Switch>
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/cpu" component={CPU}/>
+                                <Route path="/gpu" component={GPU}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/addproduto" component={Addproduto}/>
+                                <Route path="/removeproduto" component={Removeproduto}/>
                                 <Redirect from="/" to={{ pathname: "/dashboard" }}/>
                             </Switch>
                         )} />

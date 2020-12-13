@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import * as strap from 'reactstrap';
 import connect from '../../services/connect';
 
-import cpuIcon from "../../assets/icons/cpu-icon.png";
+import gpuIcon from "../../assets/icons/gpu.png";
 
 import "./styles.css";
 
-function CPU(){
+function GPU(){
     const [data, setData] = useState(undefined);
 
     useEffect(() => {
-        connect.get("/cpu").then(res => {
+        connect.get("/gpu").then(res => {
             const serverRes = res.data;
             console.log(serverRes);
             setData(serverRes);
@@ -24,7 +24,7 @@ function CPU(){
     return (
         <div>
             <div className="products-container">
-                <div className="products-title"><img src={cpuIcon} alt="CPU icon" /> CPUs</div>
+                <div className="products-title"><img src={gpuIcon} alt="GPU icon" /> GPUs</div>
             {
                 data && data.map((item) => {
                     return(
@@ -46,4 +46,4 @@ function CPU(){
     )
 }
 
-export default CPU;
+export default GPU;
