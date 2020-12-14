@@ -1,133 +1,133 @@
 const { 
-    queryUser, 
-    insertUser, 
-    removeUser, 
-    selectGPU, 
-    selectCPU, 
-    selectMB,
-    insertProduct,
-    removeProduct,
-    searchProduct,
-    insertOrder,
-    removeOrder,
-    updateOrder,
-    selectOrders,
-    selectAllOrders
+  queryUser, 
+  insertUser, 
+  removeUser, 
+  selectGPU, 
+  selectCPU, 
+  selectMB,
+  insertProduct,
+  removeProduct,
+  searchProduct,
+  insertOrder,
+  removeOrder,
+  updateOrder,
+  selectOrders,
+  selectAllOrders
 } = require('../src/fetchDB/fetchFullTable');
 
 const userData = {
-    name: "test name",
-    email: "test@name.com",
-    password: "12345",
-    address: "test address",
+  name: "test name",
+  email: "test@name.com",
+  password: "12345",
+  address: "test address",
 }
 
 const testProduct = {
-    id: 99,
-    category: 1,
-    name: "motherboard",
-    price: 9999,
-    avatar: "url"
+  id: 99,
+  category: 1,
+  name: "motherboard",
+  price: 9999,
+  avatar: "url",
 }
 
 const testOrder = {
-    barcode: "qwertyuiopasdfghjklçzxcvbnm",
-    owner: "matheus@email.com",
-    price: 999,
-    products: "testlistproducts"
+  barcode: "qwertyuiopasdfghjklçzxcvbnm",
+  owner: "matheus@email.com",
+  price: 999,
+  products: "testlistproducts",
 }
 
 const testUpdateOrder = {
-    barcode: "qwertyuiopasdfghjklçzxcvbnm",
-    status: 2
+  barcode: "qwertyuiopasdfghjklçzxcvbnm",
+  status: 2,
 }
 
 test('Select GPU table', () => {
-    return expect(selectGPU).
-            resolves.
-            not.toEqual([]);
+  return expect(selectGPU).
+    resolves.
+    not.toEqual([]);
 });
 
 test('Select CPU table', () => {
-    return expect(selectCPU).
-            resolves.
-            not.toEqual([]);
+  return expect(selectCPU).
+    resolves.
+    not.toEqual([]);
 });
 
 test('Select Motherboard table', () => {
-    return expect(selectMB).
-            resolves.
-            not.toEqual([]);
+  return expect(selectMB).
+    resolves.
+    not.toEqual([]);
 });
 
 test('Insert new user', () => {
-    return expect(insertUser(userData)).
-            resolves.
-            toEqual("Success.");
+  return expect(insertUser(userData)).
+    resolves.
+    toEqual("Success.");
 });
 
 test('Search user', () => {
-    return expect(queryUser(userData)).
-            resolves.
-            toEqual(JSON.parse(`[{"email":"test@name.com","role_id":3}]`));
+  return expect(queryUser(userData)).
+    resolves.
+    toEqual(JSON.parse(`[{"email":"test@name.com","role_id":3}]`));
 });
 
 test('Delete user', () => {
-    return expect(removeUser(userData)).
-            resolves.
-            toEqual("Success.");
+  return expect(removeUser(userData)).
+    resolves.
+    toEqual("Success.");
 });
 
 test('Search user', () => {
-    return expect(queryUser(userData)).
-            resolves.
-            toEqual([]);
+  return expect(queryUser(userData)).
+    resolves.
+    toEqual([]);
 });
 
 test('Insert product', () => {
-    return expect(insertProduct(testProduct)).
-            resolves.
-            toEqual("Success.");
+  return expect(insertProduct(testProduct)).
+    resolves.
+    toEqual("Success.");
 });
 
 test('Search product', () => {
-    return expect(searchProduct(testProduct)).
-            resolves.
-            toEqual(JSON.parse(`[{"name":"motherboard"}]`));
+  return expect(searchProduct(testProduct)).
+    resolves.
+    toEqual(JSON.parse(`[{"name":"motherboard"}]`));
 });
 
 test('Remove product', () => {
-    return expect(removeProduct(testProduct)).
-            resolves.
-            toEqual("Success.");
+  return expect(removeProduct(testProduct)).
+    resolves.
+    toEqual("Success.");
 });
 
 test('Insert order', () => {
-    return expect(insertOrder(testOrder)).
-            resolves.
-            toEqual("Success.");
+  return expect(insertOrder(testOrder)).
+    resolves.
+    toEqual("Success.");
 });
 
 test('Select orders', () => {
-    return expect(selectOrders(testOrder)).
-            resolves.
-            not.toEqual([]);
+  return expect(selectOrders(testOrder)).
+    resolves.
+    not.toEqual([]);
 });
 
 test('Select all orders', () => {
-    return expect(selectAllOrders).
-            resolves.
-            not.toEqual([]);
+  return expect(selectAllOrders).
+    resolves.
+    not.toEqual([]);
 });
 
 test('Update order', () => {
-    return expect(updateOrder(testUpdateOrder)).
-            resolves.
-            toEqual("Success.");
+  return expect(updateOrder(testUpdateOrder)).
+    resolves.
+    toEqual("Success.");
 });
 
 test('Remove order', () => {
-    return expect(removeOrder(testOrder)).
-            resolves.
-            toEqual("Success.");
+  return expect(removeOrder(testOrder)).
+    resolves.
+    toEqual("Success.");
 });

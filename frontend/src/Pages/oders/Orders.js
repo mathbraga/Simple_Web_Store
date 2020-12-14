@@ -20,9 +20,9 @@ const statusColor = {
 
 function Order(){
     const [data, setData] = useState(undefined);
-    const owner = localStorage.getItem("session");
 
     useEffect(() => {
+        const owner = localStorage.getItem("session");
         connect.post("/myorders", {
             owner
         }).then(res => {

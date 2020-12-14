@@ -35,7 +35,7 @@ function Carrinho(){
             products
         }).then(() => {
             localStorage.setItem("carrinho", "");
-            window.location.href = "http://localhost:3000/";
+            window.location.href = "http://localhost:3000/orders";
         });
     }
 
