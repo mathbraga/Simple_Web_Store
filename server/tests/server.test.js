@@ -7,7 +7,10 @@ const {
     selectMB,
     insertProduct,
     removeProduct,
-    searchProduct
+    searchProduct,
+    insertOrder,
+    removeOrder,
+    updateOrder
 } = require('../src/fetchDB/fetchFullTable');
 
 const userData = {
@@ -23,6 +26,19 @@ const testProduct = {
     name: "motherboard",
     price: 9999,
     avatar: "url"
+}
+
+const testOrder = {
+    barcode: "qwertyuiopasdfghjklçzxcvbnm",
+    owner: "matheus@email.com",
+    price: 999,
+    products: "testlistproducts",
+    status: 1
+}
+
+const testUpdateOrder = {
+    barcode: "qwertyuiopasdfghjklçzxcvbnm",
+    status: 2
 }
 
 test('Select GPU table', () => {
@@ -81,6 +97,24 @@ test('Search product', () => {
 
 test('Remove product', () => {
     return expect(removeProduct(testProduct)).
+            resolves.
+            toEqual("Success.");
+});
+
+test('Insert order', () => {
+    return expect(insertOrder(testOrder)).
+            resolves.
+            toEqual("Success.");
+});
+
+test('Update order', () => {
+    return expect(updateOrder(testUpdateOrder)).
+            resolves.
+            toEqual("Success.");
+});
+
+test('Remove order', () => {
+    return expect(removeOrder(testOrder)).
             resolves.
             toEqual("Success.");
 });

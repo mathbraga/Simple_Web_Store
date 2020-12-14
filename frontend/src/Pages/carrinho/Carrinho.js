@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import * as strap from 'reactstrap';
-// import connect from '../../services/connect';
+import connect from '../../services/connect';
 
 import cartIcon from "../../assets/icons/icon-car.png";
 
 import "./styles.css";
 
 function Carrinho(){
-    // const [total, setTotal] = useState(0);
     let totalPrice = 0;
 
-    // useEffect(() => {
-    //     connect.get("/gpu").then(res => {
-    //         const serverRes = res.data;
-    //         console.log(serverRes);
-    //         setData(serverRes);
-    //     })
-    // }, []);
     function removeItem(n){
         let data = JSON.parse('['+localStorage.getItem("carrinho").slice(0, -1)+']');
         data.splice(n, 1);
@@ -24,6 +16,11 @@ function Carrinho(){
         const finalData = newData.length === 0 ? newData : newData+',';
         localStorage.setItem("carrinho", finalData);
         window.location.reload();
+    }
+
+    function confirmOrder(totalPrice){
+        const barcode = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        
     }
 
     return (
@@ -47,7 +44,9 @@ function Carrinho(){
                         )
                     })
                 }
-                {localStorage.getItem("carrinho").length === 0 ? <span /> : <><h4>Total: <span>R$ {totalPrice},00</span></h4><strap.Button color="info">Confirmar Pedido</strap.Button></>}
+                {localStorage.getItem("carrinho").length === 0 ? <span /> : 
+                    <><h4>Total: <span>R$ {totalPrice},00</span>
+                    </h4><strap.Button className="confirm-order" color="info" onClick={() => confirmOrder(totalPrice)}>Confirmar Pedido</strap.Button></>}
             </div>
         </div>
     )

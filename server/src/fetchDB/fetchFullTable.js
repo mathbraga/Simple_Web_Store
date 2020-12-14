@@ -97,6 +97,41 @@ const searchProduct = (data) => {
     });
 }
 
+const insertOrder = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`insert into orders (barcode, owner, price, products, status) values (
+            ${JSON.stringify(data.barcode)}, ${JSON.stringify(data.owner)}, ${parseInt(data.price)}, ${JSON.stringify(data.products)}, ${parseInt(data.status)}
+            )`, [], (err) => {
+            if (err) {
+                throw err;
+            }
+            resolve("Success.");
+        });
+    });
+}
+
+const removeOrder = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`delete from orders where barcode = ${JSON.stringify(data.barcode)}`, [], (err) => {
+            if (err) {
+                throw err;
+            }
+            resolve("Success.");
+        });
+    });
+}
+
+const updateOrder = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`update orders set status = ${parseInt(data.status)} where barcode = ${JSON.stringify(data.barcode)}`, [], (err) => {
+            if (err) {
+                throw err;
+            }
+            resolve("Success.");
+        });
+    });
+}
+
 module.exports = {
     selectCPU,
     selectGPU,
@@ -106,5 +141,8 @@ module.exports = {
     removeUser,
     insertProduct,
     removeProduct,
-    searchProduct
+    searchProduct,
+    insertOrder,
+    removeOrder,
+    updateOrder
 };

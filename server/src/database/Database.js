@@ -41,6 +41,19 @@ const initialize = function initDb(){
             avatar TEXT NOT NULL
         )`);
 
+        db.run(`CREATE TABLE IF NOT EXISTS orders ( 
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            barcode TEXT NOT NULL UNIQUE,
+            owner TEXT NOT NULL,
+            price INTEGER NOT NULL,
+            products TEXT NOT NULL,
+            status INT NOT NULL,
+            FOREIGN KEY (owner) 
+                REFERENCES users (email) 
+                ON DELETE CASCADE
+                ON UPDATE CASCADE
+        )`);
+
         db.run(`insert or ignore into categories (category) values ('motherboards')`);
         db.run(`insert or ignore into categories (category) values ('graphicscard')`);
         db.run(`insert or ignore into categories (category) values ('processor')`);
@@ -57,6 +70,7 @@ const initialize = function initDb(){
 
         // db.run('drop table products');
         // db.run('drop table users');
+        // db.run('drop table orders');
     });
 }
 
