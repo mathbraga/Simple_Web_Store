@@ -27,6 +27,7 @@ function Login(){
             if(data !== undefined){
                 localStorage.setItem("session", data.email);
                 localStorage.setItem("session_id", data.role_id);
+                localStorage.setItem("carrinho", "");
                 window.location.href = "http://localhost:3000/";
             }
         });

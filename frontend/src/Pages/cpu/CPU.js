@@ -8,6 +8,7 @@ import "./styles.css";
 
 function CPU(){
     const [data, setData] = useState(undefined);
+    let n = 0;
 
     useEffect(() => {
         connect.get("/cpu").then(res => {
@@ -17,8 +18,8 @@ function CPU(){
         })
     }, []);
 
-    function addToCart(id){
-        console.log(id);
+    function addToCart(id, avatar, name, price){
+        localStorage.setItem("carrinho", `${localStorage.getItem("carrinho")}{"id":"${id}","avatar":"${avatar}","name":"${name}","price":"${price}"},`);
     }
 
     return (
@@ -35,7 +36,7 @@ function CPU(){
                             </div>
                             <div className="buy-info">
                                 <div className="product-price">R$ {item.price}</div>
-                                <strap.Button color="primary" className="product-button" onClick={() => addToCart(item.id)}>Carrinho</strap.Button>
+                                <strap.Button color="primary" className="product-button" onClick={() => addToCart(item.id, item.avatar, item.name, item.price,)}>Carrinho</strap.Button>
                             </div>
                         </div>
                     )

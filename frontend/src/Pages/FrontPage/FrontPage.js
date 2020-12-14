@@ -10,6 +10,7 @@ import Cadastro from '../cadastro/Cadastro';
 import Addproduto from "../addproduto/Addproduto";
 import Removeproduto from "../removeproduto/Removeproduto";
 import RemoveUser from "../removeuser/RemoveUser";
+import Carrinho from '../carrinho/Carrinho';
 
 import wIcon from '../../assets/icons/pc-icon.png';
 import userIcon from '../../assets/icons/user.png';
@@ -22,10 +23,10 @@ function FrontPage(){
         <div>
             <div className="header-bar">
                 <div className="header-bar-item">
-                    <div><img src={wIcon} /></div>
+                    <div><img src={wIcon} alt="app Icon" /></div>
                     <div className="header-title">WebStore</div>
                 </div>
-                {!(localStorage.getItem("session")) && <a className="header-login" href="/login"><img src={userIcon} /> Login</a>}
+                {!(localStorage.getItem("session")) && <a className="header-login" href="/login"><img src={userIcon} alt="user Icon"/> Login</a>}
                 {localStorage.getItem("session") && 
                     <div className="header-logout">
                         <div className="header-email text-muted">{localStorage.getItem("session") + ","}</div>
@@ -35,6 +36,7 @@ function FrontPage(){
                             onClick={() => {
                                 localStorage.removeItem("session");
                                 localStorage.removeItem("session_id");
+                                localStorage.removeItem("carrinho");
                             }}>
                             Logout
                         </a>
@@ -56,6 +58,11 @@ function FrontPage(){
                         <strap.NavItem className="side-bar-item">
                             <strap.NavLink href="/motherboard" className="side-bar-link">Placas-mãe</strap.NavLink>
                         </strap.NavItem>
+                        {localStorage.getItem("session") && 
+                            <strap.NavItem className="side-bar-item">
+                                <strap.NavLink href="/cart" className="side-bar-link">Carrinho</strap.NavLink>
+                            </strap.NavItem>
+                        }
                         {localStorage.getItem("session_id") === "1" ? 
                             <>
                             <strap.NavItem className="side-bar-item">
@@ -82,6 +89,7 @@ function FrontPage(){
                                 <Route path="/motherboard" component={Motherboard}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/cadastro" component={Cadastro}/>
+                                <Route path="/cart" component={Carrinho}/>
                                 <Route path="/removeuser" component={RemoveUser}/>
                                 <Route path="/addproduto" component={Addproduto}/>
                                 <Route path="/removeproduto" component={Removeproduto}/>
