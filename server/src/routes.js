@@ -9,7 +9,11 @@ const {
     insertUser,
     removeUser,
     insertProduct,
-    removeProduct
+    removeProduct,
+    insertOrder,
+    selectOrders,
+    selectAllOrders,
+    updateOrder
 } = require('./fetchDB/fetchFullTable');
 
 initialize();
@@ -56,6 +60,22 @@ routes.post('/addproduct', (req, res) => {
 
 routes.post('/removeproduct', (req, res) => {
     removeProduct(req.body).then((r) => res.json(r));
+});
+
+routes.post('/addorder', (req, res) => {
+    insertOrder(req.body).then((r) => res.json(r));
+});
+
+routes.post('/myorders', (req, res) => {
+    selectOrders(req.body).then((r) => res.json(r));
+});
+
+routes.get('/allorders', (req, res) => {
+    selectAllOrders.then((r) => res.json(r));
+});
+
+routes.post('/updatestatus', (req, res) => {
+    updateOrder(req.body).then((r) => res.json(r));
 });
 
 module.exports = routes;

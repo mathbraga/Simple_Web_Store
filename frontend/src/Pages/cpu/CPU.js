@@ -8,7 +8,6 @@ import "./styles.css";
 
 function CPU(){
     const [data, setData] = useState(undefined);
-    let n = 0;
 
     useEffect(() => {
         connect.get("/cpu").then(res => {

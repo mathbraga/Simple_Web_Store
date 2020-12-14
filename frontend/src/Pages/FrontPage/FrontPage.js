@@ -11,11 +11,13 @@ import Addproduto from "../addproduto/Addproduto";
 import Removeproduto from "../removeproduto/Removeproduto";
 import RemoveUser from "../removeuser/RemoveUser";
 import Carrinho from '../carrinho/Carrinho';
+import AllOrders from '../allorders/AllOrders';
 
 import wIcon from '../../assets/icons/pc-icon.png';
 import userIcon from '../../assets/icons/user.png';
 
 import './styles.css';
+import Order from '../oders/Orders';
 
 function FrontPage(){
 
@@ -59,12 +61,20 @@ function FrontPage(){
                             <strap.NavLink href="/motherboard" className="side-bar-link">Placas-mãe</strap.NavLink>
                         </strap.NavItem>
                         {localStorage.getItem("session") && 
+                            <>
                             <strap.NavItem className="side-bar-item">
                                 <strap.NavLink href="/cart" className="side-bar-link">Carrinho</strap.NavLink>
                             </strap.NavItem>
+                            <strap.NavItem className="side-bar-item">
+                                <strap.NavLink href="/orders" className="side-bar-link">Meus Pedidos</strap.NavLink>
+                            </strap.NavItem>
+                            </>
                         }
                         {localStorage.getItem("session_id") === "1" ? 
                             <>
+                            <strap.NavItem className="side-bar-item">
+                                <strap.NavLink href="/allorders" className="side-bar-link">Todos os Pedidos</strap.NavLink>
+                            </strap.NavItem>
                             <strap.NavItem className="side-bar-item">
                                 <strap.NavLink href="/addproduto" className="side-bar-link">+ Produto</strap.NavLink>
                             </strap.NavItem>
@@ -90,6 +100,8 @@ function FrontPage(){
                                 <Route path="/login" component={Login}/>
                                 <Route path="/cadastro" component={Cadastro}/>
                                 <Route path="/cart" component={Carrinho}/>
+                                <Route path="/orders" component={Order}/>
+                                <Route path="/allorders" component={AllOrders}/>
                                 <Route path="/removeuser" component={RemoveUser}/>
                                 <Route path="/addproduto" component={Addproduto}/>
                                 <Route path="/removeproduto" component={Removeproduto}/>

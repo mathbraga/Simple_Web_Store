@@ -100,7 +100,7 @@ const searchProduct = (data) => {
 const insertOrder = (data) => {
     return new Promise((resolve) =>{
         db.all(`insert into orders (barcode, owner, price, products, status) values (
-            ${JSON.stringify(data.barcode)}, ${JSON.stringify(data.owner)}, ${parseInt(data.price)}, ${JSON.stringify(data.products)}, ${parseInt(data.status)}
+            ${JSON.stringify(data.barcode)}, ${JSON.stringify(data.owner)}, ${parseInt(data.price)}, ${JSON.stringify(data.products)}, 1
             )`, [], (err) => {
             if (err) {
                 throw err;
@@ -132,6 +132,26 @@ const updateOrder = (data) => {
     });
 }
 
+const selectOrders = (data) => {
+    return new Promise((resolve) =>{
+        db.all(`select * from orders where owner = ${JSON.stringify(data.owner)}`, [], (err, rows) => {
+            if (err) {
+                throw err;
+            }
+            resolve(rows);
+        });
+    });
+}
+
+const selectAllOrders = new Promise((resolve) =>{
+        db.all(`select * from orders`, [], (err, rows) => {
+            if (err) {
+                throw err;
+            }
+            resolve(rows);
+        });
+    });
+
 module.exports = {
     selectCPU,
     selectGPU,
@@ -144,5 +164,7 @@ module.exports = {
     searchProduct,
     insertOrder,
     removeOrder,
-    updateOrder
+    updateOrder,
+    selectOrders,
+    selectAllOrders
 };

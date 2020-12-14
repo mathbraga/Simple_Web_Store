@@ -20,7 +20,23 @@ function Carrinho(){
 
     function confirmOrder(totalPrice){
         const barcode = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        
+        const owner = localStorage.getItem("session");
+        const productsList = JSON.parse('['+localStorage.getItem("carrinho").slice(0, -1)+']');
+        let products = ""
+        products = products + productsList.map(item => {
+            return item.id
+        });
+        const price = totalPrice;
+
+        connect.post("/addorder", {
+            barcode,
+            owner,
+            price,
+            products
+        }).then(() => {
+            localStorage.setItem("carrinho", "");
+            window.location.href = "http://localhost:3000/";
+        });
     }
 
     return (

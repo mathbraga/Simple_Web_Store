@@ -10,7 +10,9 @@ const {
     searchProduct,
     insertOrder,
     removeOrder,
-    updateOrder
+    updateOrder,
+    selectOrders,
+    selectAllOrders
 } = require('../src/fetchDB/fetchFullTable');
 
 const userData = {
@@ -32,8 +34,7 @@ const testOrder = {
     barcode: "qwertyuiopasdfghjklçzxcvbnm",
     owner: "matheus@email.com",
     price: 999,
-    products: "testlistproducts",
-    status: 1
+    products: "testlistproducts"
 }
 
 const testUpdateOrder = {
@@ -105,6 +106,18 @@ test('Insert order', () => {
     return expect(insertOrder(testOrder)).
             resolves.
             toEqual("Success.");
+});
+
+test('Select orders', () => {
+    return expect(selectOrders(testOrder)).
+            resolves.
+            not.toEqual([]);
+});
+
+test('Select all orders', () => {
+    return expect(selectAllOrders).
+            resolves.
+            not.toEqual([]);
 });
 
 test('Update order', () => {
