@@ -41,7 +41,7 @@ function Login(){
                     <strap.Card className="mx-4">
                         <strap.CardBody className="p-4 card-body-container">
                             <h3>Login</h3>
-                            {user === undefined ? <div className="not-found">Usuário não encontrado.</div> : <span />}
+                            {user === undefined ? <div className="not-found">User not found.</div> : <span />}
                             <strap.Form>
                                 <strap.FormGroup>
                                     <strap.Label for="Email">Email</strap.Label>
@@ -49,11 +49,11 @@ function Login(){
                                 </strap.FormGroup>
                                 <strap.FormGroup>
                                     <strap.Label for="Password">Password</strap.Label>
-                                    <strap.Input type="password" name="password" id="Password" value={password} onChange={changePassword} placeholder="senha" />
+                                    <strap.Input type="password" name="password" id="Password" value={password} onChange={changePassword} placeholder="password" />
                                 </strap.FormGroup>
                                 <div className="login-buttons">
                                     <strap.Button color="primary" onClick={() => clickLogin()}>Login</strap.Button>
-                                    <a href="/cadastro">Cadastre-se</a>
+                                    <a href="/cadastro">Register</a>
                                 </div>
                             </strap.Form>
                         </strap.CardBody>

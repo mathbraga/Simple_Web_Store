@@ -28,7 +28,7 @@ function RemoveUser(){
                                     <strap.Label for="email">Email</strap.Label>
                                     <strap.Input name="email" id="email" value={email} onChange={(e) => {setEmail(e.target.value)}} placeholder="email" />
                                 </strap.FormGroup>
-                                <strap.Button color="primary" onClick={() => removeUser()}>Remover</strap.Button>
+                                <strap.Button color="primary" onClick={() => removeUser()}>Remove</strap.Button>
                             </strap.Form>
                         </strap.CardBody>
                     </strap.Card>

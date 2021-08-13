@@ -7,9 +7,9 @@ import orderIcon from "../../assets/icons/order-icon.png";
 import "./styles.css";
 
 const statusCode = {
-    1: "Em análise",
-    2: "À caminho",
-    3: "Entregue"
+    1: "Analyzing",
+    2: "In route",
+    3: "Delivered"
 }
 
 const statusColor = {
@@ -30,7 +30,7 @@ function AllOrders(){
     }, []);
 
     function updateStatus(barcode){
-        const status = window.prompt("Escolha novo status.");
+        const status = window.prompt("Choose new status.");
         connect.post("/updatestatus", {
             status,
             barcode
@@ -42,7 +42,7 @@ function AllOrders(){
     return (
         <div>
             <div className="products-container">
-                <div className="products-title"><img src={orderIcon} alt="Order icon" />Todos os Pedidos</div>
+                <div className="products-title"><img src={orderIcon} alt="Order icon" />All orders</div>
             {
                 data && data.map((item, index) => {
                     return(
@@ -54,7 +54,7 @@ function AllOrders(){
                             <div className="buy-info">
                                 <strap.Badge color={statusColor[item.status]} className="product-button">{statusCode[item.status]}</strap.Badge>
                             </div>
-                            <strap.Button color="primary" onClick={() => updateStatus(item.barcode)}>Editar</strap.Button>
+                            <strap.Button color="primary" onClick={() => updateStatus(item.barcode)}>Edit</strap.Button>
                         </div>
                     )
                 })

@@ -13,13 +13,12 @@ function Dashboard(){
                         <strap.Card className="mx-4">
                             <strap.CardBody className="p-4 card-body-container">
                                 <h3>
-                                    Seja bem-vindo à nossa loja.
+                                    Welcome to our store.
                                 </h3>
                                 <br />
                                 <div className="text-muted text-justify">
                                     <p>
-                                    Escolha uma das categorias no menu à esquerda para dar uma olhada
-                                    em nossos produtos.
+                                    Choose one of the categories on the left to navigate through our products.
                                     </p>
                                 </div>
                             </strap.CardBody>

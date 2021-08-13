@@ -30,7 +30,7 @@ function Cadastro(){
                     <strap.Col md="8">
                     <strap.Card className="mx-4">
                         <strap.CardBody className="p-4 card-body-container">
-                            <h3>Cadastrar</h3>
+                            <h3>Registration</h3>
                             <strap.Form>
                                 <strap.FormGroup>
                                     <strap.Label for="Email">Email</strap.Label>
@@ -38,18 +38,18 @@ function Cadastro(){
                                 </strap.FormGroup>
                                 <strap.FormGroup>
                                     <strap.Label for="Password">Password</strap.Label>
-                                    <strap.Input required type="password" name="password" id="Password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="senha" />
+                                    <strap.Input required type="password" name="password" id="Password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
                                 </strap.FormGroup>
                                 <strap.FormGroup>
-                                    <strap.Label for="name">Nome completo</strap.Label>
-                                    <strap.Input required id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nome" />
+                                    <strap.Label for="name">Full Name</strap.Label>
+                                    <strap.Input required id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="full name" />
                                 </strap.FormGroup>
                                 <strap.FormGroup>
-                                    <strap.Label for="address">Endereço</strap.Label>
-                                    <strap.Input required id="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="endereço" />
+                                    <strap.Label for="address">Address</strap.Label>
+                                    <strap.Input required id="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="address" />
                                 </strap.FormGroup>
                                 <div className="login-buttons">
-                                    <strap.Button color="primary" onClick={(e) => clickSign(e)}>Cadastrar</strap.Button>
+                                    <strap.Button color="primary" onClick={(e) => clickSign(e)}>Register</strap.Button>
                                 </div>
                             </strap.Form>
                         </strap.CardBody>

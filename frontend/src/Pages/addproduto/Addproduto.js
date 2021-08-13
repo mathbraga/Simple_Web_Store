@@ -37,11 +37,11 @@ function Addproduto(){
                                     <strap.Input name="id" id="p_Id" value={id} onChange={(e) => {setId(e.target.value)}} placeholder="Id" />
                                 </strap.FormGroup>
                                 <strap.FormGroup>
-                                    <strap.Label for="p_Name">Nome do Produto</strap.Label>
-                                    <strap.Input name="name" id="p_Name" value={name} onChange={(e) => {setName(e.target.value)}} placeholder="Nome" />
+                                    <strap.Label for="p_Name">Product Name</strap.Label>
+                                    <strap.Input name="name" id="p_Name" value={name} onChange={(e) => {setName(e.target.value)}} placeholder="Name" />
                                 </strap.FormGroup>
                                 <strap.FormGroup>
-                                    <strap.Label for="category">Categoria Id</strap.Label>
+                                    <strap.Label for="category">Category Id</strap.Label>
                                     <strap.Input type="select" name="category" id="category" value={category} onChange={(e) => {setCategory(e.target.value)}}>
                                         <option>1</option>
                                         <option>2</option>
@@ -49,14 +49,14 @@ function Addproduto(){
                                     </strap.Input>
                                 </strap.FormGroup>
                                 <strap.FormGroup>
-                                    <strap.Label for="price">Preço</strap.Label>
-                                    <strap.Input name="price" id="price" value={price} onChange={(e) => {setPrice(e.target.value)}} placeholder="Preço" />
+                                    <strap.Label for="price">Price</strap.Label>
+                                    <strap.Input name="price" id="price" value={price} onChange={(e) => {setPrice(e.target.value)}} placeholder="Price" />
                                 </strap.FormGroup>
                                 <strap.FormGroup>
-                                    <strap.Label for="avatar">Imagem do Produto</strap.Label>
+                                    <strap.Label for="avatar">Product image</strap.Label>
                                     <strap.Input name="avatar" id="avatar" value={avatar} onChange={(e) => {setAvatar(e.target.value)}} placeholder="Img URL" />
                                 </strap.FormGroup>
-                                <strap.Button color="primary" onClick={() => insertProduct()}>Adicionar</strap.Button>
+                                <strap.Button color="primary" onClick={() => insertProduct()}>Add Product</strap.Button>
                             </strap.Form>
                         </strap.CardBody>
                     </strap.Card>

@@ -27,7 +27,9 @@
   "jest": {
     "verbose": true,
     "collectCoverage": true,
-    "collectCoverageFrom": ["./src/fetchDB/fetchFullTable.js"],
+    "collectCoverageFrom": [
+      "./src/fetchDB/fetchFullTable.js"
+    ],
     "coverageDirectory": "./tests/coverageInfo"
   }
 }

@@ -24,7 +24,7 @@ function Motherboard(){
     return (
         <div>
             <div className="products-container">
-                <div className="products-title"><img src={mbIcon} alt="Motherboard icon" /> Placas-mãe</div>
+                <div className="products-title"><img src={mbIcon} alt="Motherboard icon" /> Motherboards</div>
             {
                 data && data.map((item) => {
                     return(
@@ -35,7 +35,7 @@ function Motherboard(){
                             </div>
                             <div className="buy-info">
                                 <div className="product-price">R$ {item.price}</div>
-                                <strap.Button color="primary" className="product-button" onClick={() => addToCart(item.id, item.avatar, item.name, item.price,)}>Carrinho</strap.Button>
+                                <strap.Button color="primary" className="product-button" onClick={() => addToCart(item.id, item.avatar, item.name, item.price,)}>Add to cart</strap.Button>
                             </div>
                         </div>
                     )

@@ -7,9 +7,9 @@ import orderIcon from "../../assets/icons/order-icon.png";
 import "./styles.css";
 
 const statusCode = {
-    1: "Em análise",
-    2: "À caminho",
-    3: "Entregue"
+    1: "Analyzing",
+    2: "In route",
+    3: "Delivered"
 }
 
 const statusColor = {

@@ -58,31 +58,31 @@ function FrontPage(){
                             <strap.NavLink href="/gpu" className="side-bar-link">GPU</strap.NavLink>
                         </strap.NavItem>
                         <strap.NavItem className="side-bar-item">
-                            <strap.NavLink href="/motherboard" className="side-bar-link">Placas-mãe</strap.NavLink>
+                            <strap.NavLink href="/motherboard" className="side-bar-link">Motherboards</strap.NavLink>
                         </strap.NavItem>
                         {localStorage.getItem("session") && 
                             <>
                             <strap.NavItem className="side-bar-item">
-                                <strap.NavLink href="/cart" className="side-bar-link">Carrinho</strap.NavLink>
+                                <strap.NavLink href="/cart" className="side-bar-link">Shopping cart</strap.NavLink>
                             </strap.NavItem>
                             <strap.NavItem className="side-bar-item">
-                                <strap.NavLink href="/orders" className="side-bar-link">Meus Pedidos</strap.NavLink>
+                                <strap.NavLink href="/orders" className="side-bar-link">My Orders</strap.NavLink>
                             </strap.NavItem>
                             </>
                         }
                         {localStorage.getItem("session_id") === "1" ? 
                             <>
                             <strap.NavItem className="side-bar-item">
-                                <strap.NavLink href="/allorders" className="side-bar-link">Todos os Pedidos</strap.NavLink>
+                                <strap.NavLink href="/allorders" className="side-bar-link">All Orders (admin)</strap.NavLink>
                             </strap.NavItem>
                             <strap.NavItem className="side-bar-item">
-                                <strap.NavLink href="/addproduto" className="side-bar-link">+ Produto</strap.NavLink>
+                                <strap.NavLink href="/addproduto" className="side-bar-link">Add Product (admin)</strap.NavLink>
                             </strap.NavItem>
                             <strap.NavItem className="side-bar-item">
-                                <strap.NavLink href="/removeproduto" className="side-bar-link">- Produto</strap.NavLink>
+                                <strap.NavLink href="/removeproduto" className="side-bar-link">Remove Product (admin)</strap.NavLink>
                             </strap.NavItem>
                             <strap.NavItem className="side-bar-item">
-                                <strap.NavLink href="/removeuser" className="side-bar-link">- Usuário</strap.NavLink>
+                                <strap.NavLink href="/removeuser" className="side-bar-link">Remove User (admin)</strap.NavLink>
                             </strap.NavItem>
                             </> :
                             <span />

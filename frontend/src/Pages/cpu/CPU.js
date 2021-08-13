@@ -35,7 +35,7 @@ function CPU(){
                             </div>
                             <div className="buy-info">
                                 <div className="product-price">R$ {item.price}</div>
-                                <strap.Button color="primary" className="product-button" onClick={() => addToCart(item.id, item.avatar, item.name, item.price,)}>Carrinho</strap.Button>
+                                <strap.Button color="primary" className="product-button" onClick={() => addToCart(item.id, item.avatar, item.name, item.price,)}>Add to cart</strap.Button>
                             </div>
                         </div>
                     )

@@ -54,7 +54,7 @@ function Carrinho(){
                                 </div>
                                 <div className="buy-info">
                                     <div className="product-price">R$ {item.price}</div>
-                                    <strap.Button color="primary" className="product-button" onClick={() => removeItem(index)}>Remover</strap.Button>
+                                    <strap.Button color="primary" className="product-button" onClick={() => removeItem(index)}>Remove</strap.Button>
                                 </div>
                             </div>
                         )
@@ -62,7 +62,7 @@ function Carrinho(){
                 }
                 {localStorage.getItem("carrinho").length === 0 ? <span /> : 
                     <><h4>Total: <span>R$ {totalPrice},00</span>
-                    </h4><strap.Button className="confirm-order" color="info" onClick={() => confirmOrder(totalPrice)}>Confirmar Pedido</strap.Button></>}
+                    </h4><strap.Button className="confirm-order" color="info" onClick={() => confirmOrder(totalPrice)}>Finish Order</strap.Button></>}
             </div>
         </div>
     )

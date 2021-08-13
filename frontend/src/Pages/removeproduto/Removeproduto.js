@@ -28,7 +28,7 @@ function Removeproduto(){
                                     <strap.Label for="p_Id">Id</strap.Label>
                                     <strap.Input name="id" id="p_Id" value={id} onChange={(e) => {setId(e.target.value)}} placeholder="Id" />
                                 </strap.FormGroup>
-                                <strap.Button color="primary" onClick={() => insertProduct()}>Remover</strap.Button>
+                                <strap.Button color="primary" onClick={() => insertProduct()}>Remove</strap.Button>
                             </strap.Form>
                         </strap.CardBody>
                     </strap.Card>
