@@ -41,6 +41,12 @@ Connected to the database.
 If all went well, you should get a "Compiled successfully!" message in your terminal, and your browser will pop-up and load the application 
 (this can take some time depending on your machine).
 
+If you wish to run the Jest test module, navigate to "server/tests" and run "npm run test".
+```
+.../$ cd server/tests
+.../$ npm run test
+```
+
 ## Issues
 Updates to the database do not take effect immediately on the application (like adding an order). For the application to update after a 
 successfull db operation, you must shutdown then restart the server (Step 3). **You do not need to restart the frontend, just the server.**
