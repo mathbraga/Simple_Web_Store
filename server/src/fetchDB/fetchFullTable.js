@@ -255,14 +255,17 @@ const selectOrders = (data) => {
 *
 * Assertivas de Saída: String formatada com o resultado da busca
 */
-const selectAllOrders = new Promise((resolve) => {
-  db.all(`select * from orders`, [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    resolve(rows);
+const selectAllOrders = (data) => {
+  return new Promise((resolve) => {
+    db.all(`select * from orders`, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      console.log(data)
+      resolve(rows);
+    });
   });
-});
+}
 
 module.exports = {
   selectCPU,

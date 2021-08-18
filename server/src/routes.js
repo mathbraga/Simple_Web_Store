@@ -101,7 +101,7 @@ routes.post('/myorders', (req, res) => {
 // Método get na rota /allorders
 // Retorna tabela com todos os pedidos no sistema
 routes.get('/allorders', (req, res) => {
-  selectAllOrders.then((r) => res.json(r));
+  selectAllOrders("data").then((r) => res.json(r));
 });
 
 // Método post na rota /updatestatus
