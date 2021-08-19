@@ -20,6 +20,7 @@ const statusColor = {
 
 function AllOrders(){
     const [data, setData] = useState(undefined);
+    const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
         connect.get("/allorders").then(res => {
@@ -27,16 +28,14 @@ function AllOrders(){
             console.log(serverRes);
             setData(serverRes);
         })
-    }, []);
+    }, [toggle]);
 
     function updateStatus(barcode){
         const status = window.prompt("Choose new status.");
         connect.post("/updatestatus", {
             status,
             barcode
-        }).then(() => {
-            window.location.reload();
-        })
+        }).then(setToggle(!toggle))
     }
 
     return (
