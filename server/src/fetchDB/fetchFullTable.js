@@ -7,14 +7,16 @@ const {db} = require('../database/Database');
 *
 * Assertivas de Saída: String formatada contendo cada linha da tabela
 */
-const selectCPU = new Promise((resolve) => {
-  db.all('select * from products where category_id = 3', [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    resolve(rows);
+const selectCPU = () => {
+  return new Promise((resolve) => {
+    db.all('select * from products where category_id = 3', [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      resolve(rows);
+    });
   });
-});
+}
 
 /**
 * Pesquisa no banco de dados tabelas com todas as GPUs
@@ -23,14 +25,16 @@ const selectCPU = new Promise((resolve) => {
 *
 * Assertivas de Saída: String formatada contendo cada linha da tabela
 */
-const selectGPU = new Promise((resolve) => {
-  db.all('select * from products where category_id = 2', [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    resolve(rows);
-  });
-});
+const selectGPU = () => {
+  return new Promise((resolve) => {
+    db.all('select * from products where category_id = 2', [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      resolve(rows);
+    });
+  }); 
+};
 
 /**
 * Pesquisa no banco de dados tabelas com todas as Placas-mãe
@@ -39,14 +43,16 @@ const selectGPU = new Promise((resolve) => {
 *
 * Assertivas de Saída: String formatada contendo cada linha da tabela
 */
-const selectMB = new Promise((resolve) => {
-  db.all('select * from products where category_id = 1', [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    resolve(rows);
+const selectMB = () => {
+  return new Promise((resolve) => {
+    db.all('select * from products where category_id = 1', [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      resolve(rows);
+    });
   });
-});
+};
 
 /**
 * Pesquisa no banco de dados um usuário específico
@@ -255,14 +261,16 @@ const selectOrders = (data) => {
 *
 * Assertivas de Saída: String formatada com o resultado da busca
 */
-const selectAllOrders = new Promise((resolve) => {
-  db.all(`select * from orders`, [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    resolve(rows);
+const selectAllOrders = () => {
+  return new Promise((resolve) => {
+    db.all(`select * from orders`, [], (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      resolve(rows);
+    });
   });
-});
+}
 
 module.exports = {
   selectCPU,

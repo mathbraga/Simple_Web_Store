@@ -21,38 +21,38 @@ initialize();
 
 // Método get na rota /categories
 // Retorna tabela com todas as categorias
-routes.get('/categories', (req, res) => {
-  selectCategories.then((r) => res.json(r));
-});
+// routes.get('/categories', (req, res) => {
+//   selectCategories.then((r) => res.json(r));
+// });
 
 // Método get na rota /users
 // Retorna tabela com todos os usuários
-routes.get('/users', (req, res) => {
-  selectUsers.then((r) => res.json(r));
-});
+// routes.get('/users', (req, res) => {
+//   selectUsers.then((r) => res.json(r));
+// });
 
 // Método get na rota /roles
 // Retorna tabela com todos os tipos de usuário
-routes.get('/roles', (req, res) => {
-  selectRoles.then((r) => res.json(r));
-});
+// routes.get('/roles', (req, res) => {
+//   selectRoles.then((r) => res.json(r));
+// });
 
 // Método get na rota /cpu
 // Retorna tabela com todas as cpus
 routes.get('/cpu', (req, res) => {
-  selectCPU.then((r) => res.json(r));
+  selectCPU().then((r) => res.json(r));
 });
 
 // Método get na rota /gpu
 // Retorna tabela com todas as gpus
 routes.get('/gpu', (req, res) => {
-  selectGPU.then((r) => res.json(r));
+  selectGPU().then((r) => res.json(r));
 });
 
 // Método get na rota /motherboard
 // Retorna tabela com todas as placas-mãe
 routes.get('/motherboard', (req, res) => {
-  selectMB.then((r) => res.json(r));
+  selectMB().then((r) => res.json(r));
 });
 
 // Método post na rota /login
@@ -101,7 +101,7 @@ routes.post('/myorders', (req, res) => {
 // Método get na rota /allorders
 // Retorna tabela com todos os pedidos no sistema
 routes.get('/allorders', (req, res) => {
-  selectAllOrders.then((r) => res.json(r));
+  selectAllOrders().then((r) => res.json(r));
 });
 
 // Método post na rota /updatestatus
